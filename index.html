@@ -4,16 +4,198 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/play.png"
+      type="image/x-icon"
+    />
+    <!-- OG Tags -->
+    <!-- HTML Meta Tags -->
+
+    <meta name="description" content="Unleash Your Keyboard kung fu!!!" />
+
+    <!-- Facebook Meta Tags -->
+    <meta
+      property="og:url"
+      content="https://webdev-farhan.github.io/typing-battle/"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="TYPING BATTLE PRO" />
+    <meta
+      property="og:description"
+      content="Unleash Your Keyboard kung fu!!!"
+    />
+    <meta
+      property="og:image"
+      content="https://webdev-farhan.github.io/typing-battle/assets/img/img.png"
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:domain"
+      content="webdev-farhan.github.io/typing-battle"
+    />
+    <meta
+      property="twitter:url"
+      content="https://webdev-farhan.github.io/typing-battle/"
+    />
+    <meta name="twitter:title" content="TYPING BATTLE PRO" />
+    <meta
+      name="twitter:description"
+      content="Unleash Your Keyboard kung fu!!!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://webdev-farhan.github.io/typing-battle/assets/img/img.png"
+    />
+
     <title>Typing Battle</title>
   </head>
   <body>
     <header></header>
-    <main>
-      <section id="home"></section>
-      <section id="play-ground"></section>
-      <section id="score"></section>
+    <main
+      class="bg-[#1E1E1E] min-h-screen bg-no-repeat bg-center"
+      style="background-image: url('assets/img/background.png')"
+    >
+      <!-- Home Screen -->
+      <section
+        id="home"
+        class="text-white flex min-h-screen justify-center items-center text-center"
+      >
+        <div class="flex flex-col justify-center items-center gap-10">
+          <h1 class="text-8xl font-atma uppercase font-bold">
+            Typing Battle Pro
+          </h1>
+          <p class="text-2xl font-comicNeue">
+            Unleash Your Keyboard kung fu!!!
+          </p>
+          <button
+            onclick="startGame()"
+            class="btn bg-white text-[#010313] hover:text-white text-2xl font-semibold font-comicNeue"
+          >
+            Play Now!
+          </button>
+        </div>
+      </section>
+      <!-- Playground Screen -->
+      <section id="play-ground" class="hidden">
+        <div class="flex flex-col justify-center items-center gap-8 pt-6">
+          <!-- Screen -->
+          <div
+            class="artboard artboard-horizontal phone-4 border-[#010313CC] bg-[#FFFFFFB3] border-[1.25rem] rounded-2xl"
+          >
+            <div class="flex justify-center">
+              <p
+                class="font-comicNeue text-lg font-medium text-center text-white bg-[#2F2941] w-96 rounded-b-xl px-7 pb-3 pt-2"
+              >
+                Don't watch your keyboard while playing...!
+              </p>
+            </div>
+            <div class="flex h-full items-center justify-center">
+              <p
+                id="current-alphabet"
+                class="text-center font-comicNeue font-semibold text-9xl text-[#010313]"
+              >
+                Y
+              </p>
+            </div>
+          </div>
+          <!-- KeyBoard -->
+          <div>
+            <div class="flex justify-center gap-1 my-1 w-full">
+              <kbd id="q" class="kbd">q</kbd>
+              <kbd id="e" class="kbd">e</kbd>
+              <kbd id="r" class="kbd">r</kbd>
+              <kbd id="t" class="kbd">t</kbd>
+              <kbd id="y" class="kbd">y</kbd>
+              <kbd id="w" class="kbd">w</kbd>
+              <kbd id="u" class="kbd">u</kbd>
+              <kbd id="i" class="kbd">i</kbd>
+              <kbd id="o" class="kbd">o</kbd>
+              <kbd id="p" class="kbd">p</kbd>
+            </div>
+            <div class="flex justify-center gap-1 my-1 w-full">
+              <kbd id="a" class="kbd">a</kbd>
+              <kbd id="s" class="kbd">s</kbd>
+              <kbd id="d" class="kbd">d</kbd>
+              <kbd id="f" class="kbd">f</kbd>
+              <kbd id="g" class="kbd">g</kbd>
+              <kbd id="h" class="kbd">h</kbd>
+              <kbd id="j" class="kbd">j</kbd>
+              <kbd id="k" class="kbd">k</kbd>
+              <kbd id="l" class="kbd">l</kbd>
+            </div>
+            <div class="flex justify-center gap-1 my-1 w-full">
+              <kbd id="z" class="kbd">z</kbd>
+              <kbd id="x" class="kbd">x</kbd>
+              <kbd id="c" class="kbd">c</kbd>
+              <kbd id="v" class="kbd">v</kbd>
+              <kbd id="b" class="kbd">b</kbd>
+              <kbd id="n" class="kbd">n</kbd>
+              <kbd id="m" class="kbd">m</kbd>
+              <kbd class="kbd">/</kbd>
+            </div>
+          </div>
+          <!-- Lives and scores -->
+          <div class="flex justify-between w-3/4">
+            <button
+              class="btn bg-[#894189] font-inter text-xl font-medium text-center text-white hover:text-[#d66ad6] rounded-full"
+            >
+              Lives
+              <img src="./assets/img/hearts.svg" alt="" />
+              <span id="current-lives">3</span>
+            </button>
+            <button
+              class="btn bg-[#360490] font-inter text-xl font-medium text-center text-white hover:text-[#af83ff] rounded-full"
+            >
+              Score
+              <img src="./assets/img/dollar.svg" alt="" />
+              <span id="current-score">0</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- Score Screen -->
+      <section
+        id="score-screen"
+        class="flex min-h-screen justify-center items-center hidden"
+      >
+        <div
+          class="flex flex-col gap-4 justify-center items-center p-11 rounded-2xl"
+          style="
+            background: linear-gradient(
+              136.67deg,
+              rgba(255, 255, 255, 0.56) 0%,
+              rgba(152, 151, 151, 0) 102.037%
+            );
+          "
+        >
+          <div>
+            <h1 class="text-7xl font-comicNeue text-red-700 font-extrabold">
+              Game Over!
+            </h1>
+            <h1 class="text-6xl font-comicNeue text-white text-center">
+              <span class="font-extrabold">Score :</span>
+              <span id="final-score" class="font-medium">14</span>
+            </h1>
+          </div>
+          <button
+            onclick="restartGame()"
+            class="btn bg-white text-[#010313] hover:text-white text-2xl font-semibold font-comicNeue"
+          >
+            Play Again!
+          </button>
+          <p
+            class="font-atma text-2xl font-semibold text-center text-[#010313]"
+          >
+            Practice will make you Pro!
+          </p>
+        </div>
+      </section>
     </main>
     <footer></footer>
+    <script src="./assets/js/utility.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
