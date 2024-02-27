@@ -7,7 +7,7 @@ const swapScreen = (previousScreen, nextScreen) => {
   document.getElementById(nextScreen).classList.remove("hidden");
 };
 const playSound = (soundName) => {
-  const audio = new Audio(`../assets/sounds/${soundName}.mp3`);
+  const audio = new Audio(`../sounds/${soundName}.mp3`);
   audio.play();
 };
 
